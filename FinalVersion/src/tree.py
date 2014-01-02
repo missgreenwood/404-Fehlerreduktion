@@ -148,7 +148,7 @@ def export_as_csv(tree, destination_file):
 
     f = open(destination_file, "w")
     #csv = [domain, url, count, xenu_count, verantwortlichkeit, references]
-    csv = ["Domain", "Fehlende URL", "Haufigkeit", "Xenu-Haufigkeit", "Verantwortlich", "Quell-URL"]
+    csv = ["Domain", "Fehlende URL", "Haeufigkeit", "Xenu-Haeufigkeit", "Verantwortlich", "Quell-URL"]
     line = ";".join(csv) + CSV.EOL
     f.write(line)
 

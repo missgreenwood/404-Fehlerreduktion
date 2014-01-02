@@ -31,6 +31,41 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/tree.py",
+			"settings":
+			{
+				"buffer_size": 6705,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/xen_filter.py",
+			"settings":
+			{
+				"buffer_size": 2519,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "start.py",
+			"settings":
+			{
+				"buffer_size": 1820,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# CSV SCHEME\n\n\n##\n# Returns an enum datatype\n# from http://stackoverflow.com/questions/36932/how-can-i-represent-an-enum-in-python\n#\n# Usage:\n#   Numbers = enum(ONE=1, TWO=2, THREE='three')\n#   Numers.ONE\n#   >> 1\n#   Numbers.reverse_mapping['three']\n#   >> THREE\n#\ndef enum(*sequential, **named):\n    enums = dict(zip(sequential, range(len(sequential))), **named)\n    reverse = dict((value, key) for key, value in enums.iteritems())\n    enums['reverse_mapping'] = reverse\n    return type('Enum', (), enums)\n\n# line end\nEOL = '\\n'\n# column delimiter\nDELIMITER = '\\t'\n# source location, if both: may be intern or extern\nLOCATION = enum(BOTH=\"0\", INTERN=\"1\", EXTERN=\"2\")\n# columns in working csv file\n# [RESSOURCE_ERRORS, SOURCE, RESSOURCE, SOURCE_LOCATION, RESSOURCE_LOCATION]\nCOLUMNS = enum(RESSOURCE_ERRORS=0, SOURCE=1, RESSOURCE=2, SOURCE_LOCATION=3, RESSOURCE_LOCATION=4)\n\n\ndef get_columns(line):\n    return line.split(DELIMITER)\n\n\n# return columns as line matching scheme\ndef get_line(ressource_errors, source_url, ressource_url, source_location=0, ressource_location=0):\n    # SCHEME\n    return DELIMITER.join([ressource_errors, source_url, ressource_url, source_location, ressource_location]) + EOL\n",
+			"file": "src/csv_scheme.py",
+			"file_size": 1207,
+			"file_write_time": 130327973240000000,
+			"settings":
+			{
+				"buffer_size": 1205,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -103,13 +138,15 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
+			"/Users/judith/Documents/Job/MuenchenDe/404Fehlerreduktion/FinalVersion/",
+			"/Users/judith/Documents/Job/MuenchenDe/404Fehlerreduktion/FinalVersion/src"
 		]
 	},
 	"find_state":
@@ -117,6 +154,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"www.muenchen.de-2013-11.csv",
+			"www.muenchen.de-2013-12.csv",
+			"www.muenchen.de-2013-11",
+			"verbose",
+			"www.muenchen.de-2013-11.csv",
+			"2013",
+			"resssource",
+			"ressource",
 			"insertIntoDataStruct",
 			"results",
 			"sources",
@@ -133,6 +178,9 @@
 		"regex": true,
 		"replace_history":
 		[
+			"www.muenchen.de-2013-12.csv",
+			"www.muenchen.de-2013-11.csv",
+			"www.muenchen.de-2013-12.csv"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -143,8 +191,124 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/tree.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6705,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5716,
+								5723
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2783.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/xen_filter.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2519,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "start.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/csv_scheme.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1205,
+								1205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -186,7 +350,7 @@
 	"project": "404-fehlerreduktion.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -224,7 +388,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 266.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
