@@ -1,0 +1,17 @@
+FinalVersion/sources/*
+
+!.gitignore
+
+Version2/*
+
+Version3/*
+
+FinalVersion/results/*
+
+!.gitignore
+
+FinalVersion/cache/*
+
+!.gitignore
+
+404-2013-12/*
