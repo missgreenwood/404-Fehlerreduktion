@@ -44,7 +44,7 @@ xen_tree = Tree.create_from_csv(FILE_DATA_XEN, CSV.COLUMNS.RESSOURCE, CSV.COLUMN
 # and copy node weight on leafs as xen_count.
 Tree.leaf_copy_info_value(xen_tree, Tree.COUNT, Tree.XEN_COUNT)
 # Then extend tree with log data
-domain_tree = Tree.create_from_csv(FILE_DATA_LOG, CSV.COLUMNS.RESSOURCE, CSV.COLUMNS.SOURCE, CSV.COLUMNS.RESSSOURCE_ERRORS, xen_tree)
+domain_tree = Tree.create_from_csv(FILE_DATA_LOG, CSV.COLUMNS.RESSOURCE, CSV.COLUMNS.SOURCE, CSV.COLUMNS.RESSOURCE_ERRORS, xen_tree)
 
 # perform evaluation
 # ...
