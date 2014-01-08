@@ -1,11 +1,9 @@
-## TODO 
+# TODO 
 
-# evaluation.csv modifizieren 
+### falls externe source vorhanden: "Verantwortlich" = "Mailaufforderung" 
 
-# Eintraege mit Serverlog-Haeufigkeit >= 100 extrahieren als evaluation_refined.csv
+## /results/evaluation_refined.csv exportieren als xlsx
 
-# modifizieren nach neuen Kriterien 
+## /results/evaluation_refined.csv sortieren nach Serverlog-Haeufigkeit
 
-# umwandeln in xlsx
-
-# Recherche und eintragen per Hand (dieses Mal)
+## Redirect recherchieren und eintragen (dieses Mal per Hand)

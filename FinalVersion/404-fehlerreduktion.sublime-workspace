@@ -31,30 +31,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/tree.py",
-			"settings":
-			{
-				"buffer_size": 6705,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "start.py",
-			"settings":
-			{
-				"buffer_size": 1820,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/csv_scheme.py",
-			"settings":
-			{
-				"buffer_size": 1205,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -97,6 +73,7 @@
 	},
 	"file_history":
 	[
+		"/Users/judith/Documents/404Fehlerreduktion/FinalVersion/src/csv_scheme.py",
 		"/Users/judith/Documents/Job/MuenchenDe/404Fehlerreduktion/FinalVersion/sources/www.muenchen.de-2013-12.csv",
 		"/Users/judith/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/judith/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
@@ -128,7 +105,7 @@
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -181,95 +158,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/tree.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6705,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5837,
-								5837
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "start.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1820,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1661,
-								1661
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/csv_scheme.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1205,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1205,
-								1205
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -311,7 +201,7 @@
 	"project": "404-fehlerreduktion.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -7,7 +7,16 @@ COUNT = 'count'
 URL = 'url'
 XEN_COUNT = 'xen_count'
 REFERENCE = 'sources'
-RESPONSABLE = 'verantwortlich'
+## EVALUATION ??
+#
+# Programmierfehler
+#   null
+#   + askdasd +
+#
+# oder Hack
+#   javascript:window.print()
+#
+
 
 ##
 # Returns the domain hierarchy of the given csv
@@ -54,6 +63,7 @@ def add_url(tree, url, reference, weight=1):
     folders = url.split('/')
     add_folders(tree, url, folders, reference, weight)
 
+
 ##
 # inserts folders into dictionary and count occurences
 #
@@ -79,9 +89,6 @@ def add_folders(tree, url, folders, reference, weight=1):
             current[INFO] = {}
             current[INFO][COUNT] = weight
 
-
-            current[INFO][RESPONSABLE] = ""  
-
         else:
             # store as new current
             current = found
@@ -90,7 +97,7 @@ def add_folders(tree, url, folders, reference, weight=1):
 
     leaf_url = current[INFO].get(URL, None)
     if (leaf_url is None):
-        current[INFO][URL] = url 
+        current[INFO][URL] = url
 
     if (reference is not '-'):
 
@@ -117,25 +124,6 @@ def on_leaf(tree, callback):
                 on_leaf(tree[folder], callback)
 
 
-def define_responsable(tree): 
-
-    for folder in tree: 
-
-        if (folder == "media" or folder == ".resources"): 
-            folder[INFO][RESPONSABLE] = "Redirect"
-        elif (folder == "veranstaltungen"): 
-           tree[folder][INFO][RESPONSABLE] = "Redaktion"
-        elif (folder == "rathaus"): 
-            tree[folder][INFO][RESPONSABLE] = "Gernhaeuser"  
-        elif (folder == "media-static"): 
-            tree[folder][INFO][RESPONSABLE] = "Technik"
-        elif (folder == "mhp"): 
-            tree[folder][INFO][RESPONSABLE] = "Branchenbuch"
-        else: 
-            tree[folder][INFO][RESPONSABLE] = "Offen"
-
-
-# 
 ##
 # Copies and info value
 #
@@ -154,17 +142,13 @@ def leaf_copy_info_value(tree, source, destination):
 # STEP 1
 # Exports the given tree as Nik-CSV
 #
-# DEPTH(0) = Domain; RESPONSABLE = Verantwortlich; URL = Fehlende URL; COUNT = Serverlog-Haeufigkeit; XENU_COUNT = Xenu-Haeufigkeit; DEPTHS(1) = Channel; REFERENCE = Quell-URL
+# DEPTH(0) = domain; URL = Fehlende URL; COUNT = Haufigkeit; XENU_COUNT = Xenu-Haufigkeit; DEPTHS(1) = Verantwortlich; REFERENCE = Quell-URL
 # -> DEPTH(1): nur falls nicht leaf, sonst: domain?
 def export_as_csv(tree, destination_file):
 
     f = open(destination_file, "w")
-
-    define_responsable(tree)
-
-    #csv = [domain, verantwortlich, redirect, url, count, xenu_count, channel, references]
-    csv = ["Domain", "Verantwortlich", "Redirect", "Fehlende URL", "Serverlog-Haeufigkeit", "Xenu-Haeufigkeit", "Channel", "Quell-URL"]
-
+    #csv = [domain, url, count, xenu_count, verantwortlichkeit, references]
+    csv = ["Domain", "Fehlende URL", "Haeufigkeit", "Xenu-Haeufigkeit", "Verantwortlich", "Quell-URL"]
     line = ";".join(csv) + CSV.EOL
     f.write(line)
 
@@ -179,44 +163,38 @@ def export_as_csv(tree, destination_file):
 # STEP 2
 def export_domain_as_csv(domain, tree, f):
 
-    channel = domain
+    verantwortlichkeit = domain
 
-    # channel = folder
+    # verantwortlichkeit = folder
     for folder in tree:
 
         if (folder is not INFO):
             if (len(tree[folder]) != 1):
-                channel = folder
+                verantwortlichkeit = folder
 
-            export_info_as_csv(tree[folder], domain, channel, f)
-        
-    
+            export_info_as_csv(tree[folder], domain, verantwortlichkeit, f)
+
 
 ##
 # LAST STEPS
 #
-def export_info_as_csv(tree, domain, channel, f):
+def export_info_as_csv(tree, domain, verantwortlichkeit, f):
 
     for folder in tree:
-
         if (folder is not INFO):
             if (len(tree[folder]) == 1):
-                write_line(tree[folder][INFO], domain, channel, f)
+                write_line(tree[folder][INFO], domain, verantwortlichkeit, f)
             else:
-                export_info_as_csv(tree[folder], domain, channel, f)
+                export_info_as_csv(tree[folder], domain, verantwortlichkeit, f)
 
 
 ##
 # Writes the info to line
-def write_line(info, domain, channel, f):
+def write_line(info, domain, verantwortlichkeit, f):
 
     url = info.get(URL, "ERROR")
     count = str(info.get(COUNT, 0))
     xenu_count = str(info.get(XEN_COUNT, 0))
-
-    redirect = "0ffen"
-
-    verantwortlich = str(info.get(RESPONSABLE))
 
     references = info.get(REFERENCE, [])
     # remove duplicates
@@ -224,8 +202,7 @@ def write_line(info, domain, channel, f):
     # add in separate columns
     references = ';'.join(references)
 
-    csv = [domain, verantwortlich, redirect, url, count, xenu_count, channel, references]
-
+    csv = [domain, url, count, xenu_count, verantwortlichkeit, references]
     line = ';'.join(csv) + CSV.EOL
     f.write(line)
 
