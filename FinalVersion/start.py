@@ -14,10 +14,13 @@ from src.xen_filter import xenFilter
 from src.csv_filter import csvFilter
 import src.csv_scheme as CSV
 import src.tree as Tree
+import src.modify as Modify
 
-FILE_RESULT = "results/evaluation.csv"
+FILE_RESULT = "results/evaluation_temporary.csv"
 FILE_XEN_SOURCE_MAP = "sources/XEN_20_broken_map.txt"
 FILE_CSV_SOURCE = "sources/www.muenchen.de-2013-12.csv"
+FILE_FINAL = "results/evaluation.csv"
+FILE_REFINED = "results/evaluation_refined.csv"
 
 CLEAR_CACHE = False
 FILE_DATA = "cache/data.csv"
@@ -52,5 +55,9 @@ domain_tree = Tree.create_from_csv(FILE_DATA_LOG, CSV.COLUMNS.RESSOURCE, CSV.COL
 # Tree.verbose(domain_tree, 1)
 
 # save results
+
+Tree.define_responsable(domain_tree)
 Tree.export_as_csv(domain_tree, FILE_RESULT)
+Modify.csv_modify(FILE_RESULT, FILE_FINAL, FILE_REFINED)
+
 print('done')
