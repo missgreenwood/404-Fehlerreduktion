@@ -14,6 +14,7 @@ from src.xen_filter import xenFilter
 from src.csv_filter import csvFilter
 import src.csv_scheme as CSV
 import src.tree as Tree
+import src.modify as Modify
 
 FILE_TEMPORARY_RESULT = "results/evaluation_temporary.csv"
 FILE_XEN_SOURCE_MAP = "sources/XEN_20_broken_map.txt"
@@ -53,6 +54,10 @@ domain_tree = Tree.create_from_csv(FILE_DATA_LOG, CSV.COLUMNS.RESSOURCE, CSV.COL
 
 # Tree.verbose(domain_tree, 1)
 
-# save results
+# save temporary results
 Tree.export_as_csv(domain_tree, FILE_TEMPORARY_RESULT)
+
+# generate result file and refined result file
+Modify.csv_modify(FILE_TEMPORARY_RESULT, FILE_RESULT, FILE_REFINED_RESULT)
+
 print('done')
