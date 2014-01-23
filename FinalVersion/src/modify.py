@@ -61,19 +61,34 @@ def csv_modify(filename, destination, final, mode="w"):
             domain = columns[COLUMN_DOMAIN]
             # print(domain)
 
+            # Falls "media/lhm/_de/rubriken/Rathaus/por/stellenangebote" in ressource: -> "Redirect" = "http://www.muenchen.de/leben/job.html" 
+            if "media/lhm/_de/rubriken/Rathaus/por/stellenangebote" in columns[COLUMN_RESSOURCE]:          
+                columns[COLUMN_REDIRECT] = "http://www.muenchen.de/leben/job.html"
+
+            # Falls "Channel" == "media" oder "Channel" == ".resources" -> "Verantwortlich" = "Redirect"
+
             if (columns[COLUMN_CHANNEL] == "media" or columns[COLUMN_CHANNEL] == ".resources"): 
-                 columns[COLUMN_RESPONSABLE] = "Redirect"
+                columns[COLUMN_RESPONSABLE] = "Redirect"
             elif (columns[COLUMN_CHANNEL] == "veranstaltungen"): 
-                 columns[COLUMN_RESPONSABLE] = "Redaktion"
+                columns[COLUMN_RESPONSABLE] = "Redaktion"
             elif (columns[COLUMN_CHANNEL] == "rathaus"): 
-                 columns[COLUMN_RESPONSABLE] = "Gernhaeuser"
+                columns[COLUMN_RESPONSABLE] = "Gernhaeuser"
             elif (columns[COLUMN_CHANNEL] == "media-static"): 
-                 columns[COLUMN_RESPONSABLE] = "Technik"
+                columns[COLUMN_RESPONSABLE] = "Technik"
             elif (columns[COLUMN_CHANNEL] == "mhp"): 
-                 columns[COLUMN_RESPONSABLE] = "Branchenbuch"
+                columns[COLUMN_RESPONSABLE] = "Branchenbuch"
             else: 
-                 columns[COLUMN_RESPONSABLE] = "Offen"
-            
+                columns[COLUMN_RESPONSABLE] = "Offen"
+
+            # alle Bilddateien in media/lhm -> "Verantwortlich" = "Gernhaeuser"   
+            if (("media/lhm" in columns[COLUMN_RESSOURCE]) and (".jpeg" in columns[COLUMN_RESSOURCE] or ".jpg" in columns[COLUMN_RESSOURCE] or ".png" in columns[COLUMN_RESSOURCE] or ".gif" in columns[COLUMN_RESSOURCE] or ".bmp" in columns[COLUMN_RESSOURCE])):
+                columns[COLUMN_RESPONSABLE] = "Gernhaeuser"
+
+            # alle Bilddateien in /media -> "Verantwortlich" = "Redirect" nur bei "Serverlog-Haeufigkeit" >= 500, sonst "Verantwortlich" = "Offen"
+            if ((columns[COLUMN_CHANNEL] == "media") and (".jpeg" in columns[COLUMN_RESSOURCE] or ".jpg" in columns[COLUMN_RESSOURCE] or ".png" in columns[COLUMN_RESSOURCE] or ".gif" in columns[COLUMN_RESSOURCE] or ".bmp" in columns[COLUMN_RESSOURCE])): 
+                if (int(columns[COLUMN_COUNT]) <= 500): 
+                    columns[COLUMN_RESPONSABLE] = "Offen"
+
             redirect = columns[COLUMN_REDIRECT]
 
             ressource = columns[COLUMN_RESSOURCE]
