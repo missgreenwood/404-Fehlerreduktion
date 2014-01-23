@@ -1,0 +1,60 @@
+TODO 22-01-14.txt
+
+
+# Redirect nur dann erstellen, wenn Source im Range von muenchen.de liegt -> ✔ erledigt im Skript, betrifft jeweils aktuelle excel-Datei   
+
+# Generell: Händische Recherche nur bei pdf-Dateien; bei Bilddateien nur dann, wenn “Serverlog-Haeufigkeit”>= 500 ✔
+
+# Neue Regeln f. Redirects: 
+	
+	
+	## media/lhm/_de/rubriken/Rathaus/por/stellenangebote -> “Redirect” = “http://www.muenchen.de/leben/job.html” -> erledigt in aktueller Nik-excel, TODO Skript
+	
+	
+	## alle Bilddateien in media/lhm -> “Verantwortlich” = “Gernhaeuser” -> erledigt in aktueller Nik-excel, TODO Skript  
+	
+	
+	## Landing Pages für die Redirects der Referate festlegen (eigenständig): ✔
+
+    	### alle intern!
+
+    	### Bauzentrum: http://www.muenchen.de/rathaus/Stadtverwaltung/Referat-fuer-Gesundheit-und-Umwelt/Klimaschutz_und_Energie/Energieeffizientes_Bauen.html
+
+    	### Tourismusamt: http://www.muenchen.de/rathaus/Stadtverwaltung/Referat-fuer-Arbeit-und-Wirtschaft/Tourismusamt.html
+
+    	### RGU: http://www.muenchen.de/rathaus/Stadtverwaltung/Referat-fuer-Gesundheit-und-Umwelt.html
+
+    	### Baureferat: http://www.muenchen.de/rathaus/Stadtverwaltung/baureferat.html
+
+    	### Sozialreferat: http://www.muenchen.de/rathaus/Stadtverwaltung/Sozialreferat.html
+
+
+	
+	## “Offen” rausnehmen in Spalte “Redirect” ✔
+	
+	
+	## alle Bilddateien in /media: ✔ erledigt in aktueller Nik-excel (im Skript sinnlos, da kein Muster erkennbar)
+	
+	    ### Unterstriche rausnehmen, erneut testen ✔
+	
+	    ### Redirect nur bei “Serverlog-Haufigkeit” >= 500
+	
+	
+	## Wenn “Channel” == media: -> erledigt in aktueller Nik-excel, TODO Skript
+
+	    ### falls Bilddatei: “Redirect” = “Offen”
+	    
+	    ### falls pdf-Datei: “Verantwortlich” = “Redirect”
+
+
+
+Aufteilen: 
+
+	1. Skripte anpassen an Anforderungen 
+
+	3. Vergleich, ob Programm in Zukunft gewünschte Ergebnisse liefern wird
+
+	4. Doku, Nik benachrichtigen 
+
+	5. Rechnung :)   
+

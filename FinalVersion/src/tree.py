@@ -214,7 +214,7 @@ def write_line(info, domain, channel, f):
     count = str(info.get(COUNT, 0))
     xenu_count = str(info.get(XEN_COUNT, 0))
 
-    redirect = "0ffen"
+    redirect = "-"
 
     verantwortlich = str(info.get(RESPONSABLE))
 
